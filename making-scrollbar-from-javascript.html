@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+    .box {
+      position: relative;
+      width: 300px;
+      height: 100px;
+      padding: 20px;
+      border: 1px solid #e1e1e1;
+    }
+    .contents{
+      overflow-y: scroll;
+      height: 100%;
+      -ms-overflow-style: none; /* IE and Edge */ 
+      scrollbar-width: none;    /* Firefox */
+    }
+    .contents::-webkit-scrollbar { 
+      display: none;            /* Chrome, Safari, Opera*/
+    }
+    .scroll-bar-cover {
+      position: absolute;
+      top: 50%;
+      right: 2%;
+      transform: translate(0%, -50%);
+      width: 4px; 
+      height: 80%;
+      background-color: #ccc;
+    }
+    .scroll-bar {
+      top: 0;
+      position: absolute;
+      width: 4px;
+      height: 30px;
+      background-color: #7c7979;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="contents">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. In a optio esse nam nulla, aliquam nostrum veritatis magni totam quis ipsum harum inventore iure hic accusamus! Magnam deserunt libero at?
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque aliquid commodi ad ea eos exercitationem nobis dolor! Earum dolores itaque, optio obcaecati modi ea suscipit harum eos, ab, nostrum deserunt.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius blanditiis reprehenderit sed rerum exercitationem eligendi fugit odio ipsa. A possimus ad inventore libero perferendis fuga sunt voluptatum veritatis culpa. Magnam!
+    </div>
+    <div class="scroll-bar-cover">
+      <div class="scroll-bar"></div>
+    </div>
+  </div>
+  <script>
+    function scrollBar(){
+      const contentBox = document.querySelector(".contents")
+      const box = document.querySelector(".box")
+      const scrollBarCover = document.querySelector(".scroll-bar-cover")
+      const scrollBar = document.querySelector(".scroll-bar")
+      
+        contentBox.addEventListener('scroll', function() {
+          let conBoxHeight = contentBox.scrollHeight-box.offsetHeight+2  // ① contentbox (내용이 들어가는 박스)의 전체 높이(스크롤 포함) - 박스의 높이 + border값(2)
+          // console.log(conBoxHeight)
+
+          // console.log(scrollBarCover.offsetHeight-scrollBar.offsetHeight)  // ② 스크롤 top 적용하기 위해 스크롤 바를 감싼(scrollBarCover) 박스의 높이 - 스크롤바(scrollBar)의 높이
+       
+          // console.log(scrollBar.offsetHeight)
+          const conBoxST = conBoxHeight/(scrollBarCover.offsetHeight-scrollBar.offsetHeight)  // ① ÷ ②
+          // console.log(conBoxST);
+          // console.log(contentBox.scrollTop/conBoxST) // 스크롤 위치와 스크롤 바의 높이값을 비율로 계산
+          scrollBar.style.top = contentBox.scrollTop/conBoxST+"px"
+      });
+    }
+    scrollBar()
+  </script>
+</body>
+</html>
