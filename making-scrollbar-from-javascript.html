@@ -64,13 +64,13 @@
       const scrollBar = document.querySelector(".scroll-bar")
       
         contentBox.addEventListener('scroll', function() {
-          let conBoxHeight = contentBox.scrollHeight-box.offsetHeight+2  // ① contentbox (내용이 들어가는 박스)의 전체 높이(스크롤 포함) - 박스의 높이 + border값(2)
+          let conBoxHeight = contentBox.scrollHeight-box.offsetHeight+2  // A contentbox (내용이 들어가는 박스)의 전체 높이(스크롤 포함) - 박스의 높이 + border 값 2(1+1)
           // console.log(conBoxHeight)
 
-          // console.log(scrollBarCover.offsetHeight-scrollBar.offsetHeight)  // ② 스크롤 top 적용하기 위해 스크롤 바를 감싼(scrollBarCover) 박스의 높이 - 스크롤바(scrollBar)의 높이
+          // console.log(scrollBarCover.offsetHeight-scrollBar.offsetHeight)  // B 스크롤 top 적용하기 위해 스크롤 바를 감싼(scrollBarCover) 박스의 높이 - 스크롤바(scrollBar)의 높이
        
           // console.log(scrollBar.offsetHeight)
-          const conBoxST = conBoxHeight/(scrollBarCover.offsetHeight-scrollBar.offsetHeight)  // ① ÷ ②
+          const conBoxST = conBoxHeight/(scrollBarCover.offsetHeight-scrollBar.offsetHeight)  // A ÷ B
           // console.log(conBoxST);
           // console.log(contentBox.scrollTop/conBoxST) // 스크롤 위치와 스크롤 바의 높이값을 비율로 계산
           scrollBar.style.top = contentBox.scrollTop/conBoxST+"px"
