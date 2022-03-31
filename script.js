@@ -1,11 +1,9 @@
-function scrollBar(){
-    const padding = 40 // 박스의 padding-top + padding-bottom 값 입력 
-    const border = 2 // 박스의 border-top + border-bottm 값 입력 
+const =  scrollBar(padding, border) => {
 
-    const contentBox = document.querySelector(".contents")
-    const box = document.querySelector(".box")
-    const scrollBarCover = document.querySelector(".scroll-bar-cover")
-    const scrollBar = document.querySelector(".scroll-bar")
+    const contentBox = document.querySelector("#contents")
+    const box = document.querySelector("#box")
+    const scrollBarCover = document.querySelector("#scrollBarCover")
+    const scrollBar = document.querySelector("#scrollBar")
     
       contentBox.addEventListener('scroll', function() {
         // A contentbox (내용이 들어가는 박스)의 전체 높이(스크롤 포함) - 박스의 높이 + border 값 2(1+1)
@@ -22,5 +20,8 @@ function scrollBar(){
         // console.log(contentBox.scrollTop/conBoxST) // 스크롤 위치와 스크롤 바의 높이값을 비율로 계산
         scrollBar.style.top = contentBox.scrollTop/conBoxST+"px"
     });
-  }
-  scrollBar()
+}
+
+// padding = 40 // 박스의 padding-top + padding-bottom 값 입력 
+// border = 2 // 박스의 border-top + border-bottm 값 입력 
+scrollBar(40, 2)
