@@ -1,35 +1,35 @@
 *{
-    box-sizing: border-box;
-  }
-  .box {
-    position: relative;
-    width: 300px;
-    height: 400px;
-    padding: 20px;
-    border: 1px solid #e1e1e1;
-  }
-  .contents{
-    overflow-y: scroll;
-    height: 100%;
-    -ms-overflow-style: none; /* IE and Edge */ 
-    scrollbar-width: none;    /* Firefox */
-  }
-  .contents::-webkit-scrollbar { 
-    display: none;            /* Chrome, Safari, Opera*/
-  }
-  .scroll-bar-cover {
-    position: absolute;
-    top: 50%;
-    right: 2%;
-    transform: translate(0%, -50%);
-    width: 4px; 
-    height: 80%;
-    background-color: #ccc;
-  }
-  .scroll-bar {
-    top: 0;
-    position: absolute;
-    width: 4px;
-    height: 30px;
-    background-color: #7c7979;
-  }
+  box-sizing: border-box;
+}
+.box {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  padding: 20px;
+  border: 1px solid #e1e1e1;
+}
+.contents{
+  overflow-y: scroll;
+  height: 100%;
+  -ms-overflow-style: none; /* IE and Edge */ 
+  scrollbar-width: none;    /* Firefox */
+}
+.contents::-webkit-scrollbar { 
+  display: none;            /* Chrome, Safari, Opera*/
+}
+.scroll-bar-cover {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  transform: translate(0%, -50%);
+  width: 4px; 
+  height: 80%;
+  background-color: #ccc;
+}
+.scroll-bar {
+  top: 0;
+  position: absolute;
+  width: 4px;
+  height: 30px;
+  background-color: #7c7979;
+}
